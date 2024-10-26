@@ -1,0 +1,920 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #eeeeea;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+
+.cardSlider {
+  width: 80px;
+  border-radius: 0.75rem;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 10px;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+  position: relative; /* Aggiunta per il posizionamento */
+}
+
+.vertical-text {
+  position: absolute;
+  top: 50%;
+  left: 50%; /* Il testo rimane dentro la cardSlider */
+  transform: rotate(-90deg) translate(-50%, -50%); /* Regoliamo il posizionamento */
+  transform-origin: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  opacity: 1;
+  white-space: nowrap; /* Impedisce che il testo vada a capo */
+}
+
+input[type="radio"]:checked + label .vertical-text {
+  opacity: 0;
+}
+
+.cardSlider > .row {
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.cardSlider > .row > .icon {
+  background: #223;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.cardSlider > .row > .description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 80px;
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: 0.3s;
+  transition: all 0.3s ease;
+}
+
+.description p {
+  color: #b0b0ba;
+  padding-top: 5px;
+}
+
+.description h4 {
+  text-transform: uppercase;
+}
+
+input {
+  display: none;
+}
+.d-yes {
+  display: block;
+}
+
+input:checked + label {
+  width: 600px;
+}
+
+input:checked + label .description {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.cardSlider[for="c1"] {
+  background-image: url("phonix.jpeg");
+}
+.cardSlider[for="c2"] {
+  background-image: url("gru.jpeg");
+}
+.cardSlider[for="c3"] {
+  background-image: url("turtle.jpeg");
+}
+.cardSlider[for="c4"] {
+  background-image: url("fox.jpeg");
+}
+.cardSlider[for="c5"] {
+  background-image: url("gufo.jpeg");
+  background-position: center;
+}
+.cardSlider[for="c6"] {
+  background-image: url("tigre\ b.n.jpeg");
+}
+.cardSlider[for="c7"] {
+  background-image: url("carpa.jpeg");
+}
+
+:root {
+  --fenice-main: #ff4500; /* Arancione fuoco intenso */
+  --fenice-contrast: #ffdd00; /* Giallo brillante per contrasto */
+  --fenice-background: #fff5e6; /* Giallo pallido caldo */
+  --fenice-text: #4b1d00; /* Marrone rossastro scuro */
+  --fenice-nav: #991f00; /* Rosso scuro per la navbar */
+  --fenice-card-bg: #ffb84d; /* Arancione dorato per le card */
+  --fenice-section-bg: #ff9933; /* Arancione acceso per le sezioni */
+
+  /* Colori con opacità per il tema Fenice */
+  --fenice-main-opacity: rgba(
+    255,
+    69,
+    0,
+    0.85
+  ); /* Arancione intenso semi-trasparente */
+  --fenice-contrast-opacity: rgba(
+    255,
+    221,
+    0,
+    0.75
+  ); /* Giallo dorato semi-trasparente */
+  --fenice-background-opacity: rgba(
+    255,
+    245,
+    230,
+    0.9
+  ); /* Giallo pallido con opacità */
+
+  /* Tema 2: Gru */
+  --gru-primary: #ffffff; /* Bianco */
+  --gru-secondary: #a6c8e0; /* Azzurro tenue */
+  --gru-success: #0066cc; /* Blu acceso */
+
+  /* Colori con opacità per il tema Gru */
+  --gru-primary-opacity: rgba(255, 255, 255, 0.9); /* Bianco quasi opaco */
+  --gru-secondary-opacity: rgba(166, 200, 224, 0.8); /* Azzurro con opacità */
+  --gru-success-opacity: rgba(0, 102, 204, 0.8); /* Blu acceso con opacità */
+
+  /* Tema 3: Tartaruga */
+  --tartaruga-main: #7f9c5c; /* Verde oliva scuro */
+  --tartaruga-bg: #d5e6b5; /* Verde chiaro */
+  --tartaruga-secondary: #c3b299; /* Beige chiaro */
+  --tartaruga-success: #4e7b3a; /* Verde foresta */
+  --tartaruga-accent: #5b8c3c; /* Verde intenso */
+
+  /* Colori con opacità per il tema Tartaruga */
+  --tartaruga-main-opacity: rgba(
+    127,
+    156,
+    92,
+    0.85
+  ); /* Verde oliva semi-trasparente */
+  --tartaruga-bg-opacity: rgba(
+    213,
+    230,
+    181,
+    0.9
+  ); /* Verde chiaro con opacità */
+  --tartaruga-accent-opacity: rgba(
+    91,
+    140,
+    60,
+    0.7
+  ); /* Verde intenso con opacità */
+
+  /* Tema 4: Kitsune */
+  --kitsune-main: #ff4500; /* Arancione fuoco intenso */
+  --kitsune-bg: #fff5ee; /* Rosa chiaro */
+  --kitsune-secondary: #ffa07a; /* Pesca chiaro */
+  --kitsune-success: #cd5c5c; /* Rosso acceso */
+  --kitsune-accent: #ffe4b5; /* Beige chiaro */
+
+  /* Colori con opacità per il tema Kitsune */
+  --kitsune-main-opacity: rgba(
+    255,
+    69,
+    0,
+    0.8
+  ); /* Arancione semi-trasparente */
+  --kitsune-bg-opacity: rgba(255, 245, 238, 0.85); /* Rosa chiaro con opacità */
+  --kitsune-success-opacity: rgba(
+    205,
+    92,
+    92,
+    0.75
+  ); /* Rosso acceso con opacità */
+
+  /* Tema 5: Gufo */
+  --gufo-main: #5a381e; /* Marrone ricco */
+  --gufo-bg: #fce8b2; /* Beige caldo */
+  --gufo-secondary: #c0c0c0; /* Grigio argento */
+  --gufo-success: #a86d45; /* Marrone sabbia */
+  --gufo-accent: #7f4c3b; /* Rame */
+
+  /* Colori con opacità per il tema Gufo */
+  --gufo-main-opacity: rgba(90, 56, 30, 0.85); /* Marrone semi-trasparente */
+  --gufo-bg-opacity: rgba(252, 232, 178, 0.9); /* Beige caldo con opacità */
+  --gufo-success-opacity: rgba(
+    168,
+    109,
+    69,
+    0.75
+  ); /* Marrone sabbia con opacità */
+}
+
+/* Tema 1: Fenice */
+
+/* Titolo del tema */
+/* Titolo del tema */
+/* Titolo del tema */
+.fenice-title {
+  font-size: 2em;
+  color: var(--fenice-main); /* Arancione fuoco */
+  text-align: center;
+
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Ombra per dare profondità */
+}
+
+/* Paragrafo del tema */
+.fenice-paragraph {
+  font-size: 1em;
+  color: var(--fenice-text); /* Marrone rossastro scuro */
+  line-height: 1.6;
+  padding: 0 1em;
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Sfondo del tema */
+.fenice-background {
+  background-color: var(--fenice-background); /* Giallo pallido */
+  background-image: url("phonix.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+/* Navigazione del tema */
+.fenice-nav {
+  background-color: var(--fenice-nav); /* Rosso scuro */
+  color: #ffffff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.fenice-nav a {
+  color: var(--fenice-contrast); /* Giallo brillante */
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.fenice-nav a:hover {
+  color: var(--fenice-main); /* Arancione fuoco */
+}
+
+/* Bottoni di successo */
+.fenice-btn-success {
+  background-color: var(--fenice-main); /* Arancione fuoco */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.fenice-btn-2 {
+  background-color: var(--fenice-main); /* Arancione fuoco */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.fenice-btn-3 {
+  background-color: var(--fenice-main); /* Arancione fuoco */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.fenice-btn-success:hover {
+  background-color: var(
+    --fenice-contrast
+  ); /* Giallo brillante al passaggio del mouse */
+}
+
+/* Bottone informativo */
+.fenice-btn-info {
+  background-color: var(--fenice-card-bg); /* Arancione dorato */
+  color: var(--fenice-text);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.fenice-btn-info:hover {
+  background-color: var(
+    --fenice-main
+  ); /* Arancione intenso al passaggio del mouse */
+  color: #ffffff;
+}
+
+/* Footer */
+.fenice-footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--fenice-background); /* Giallo pallido */
+  color: var(--fenice-text);
+}
+
+/* Tema 2: White Crane with Blue/White Japanese Style */
+/* Titolo del tema */
+/* Titolo del tema */
+.gru-title {
+  font-size: 2em;
+  color: #001f3f; /* Blu scuro */
+  text-align: center;
+}
+
+/* Paragrafo del tema */
+.gru-paragraph {
+  font-size: 1em;
+  color: #333; /* Grigio scuro per il testo */
+  line-height: 1.5;
+  padding: 0 1em;
+}
+
+/* Card */
+.gru-card {
+  background-color: #a6c8e0; /* Azzurro tenue per le card */
+  color: #001f3f; /* Testo blu scuro */
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+/* Sfondo del tema */
+.gru-background {
+  background-color: #e3f2fd; /* Blu chiaro */
+  background-image: url("gru.jpeg"); /* Immagine del tema */
+  background-size: cover;
+  background-position: center;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+/* Navigazione del tema */
+.gru-nav {
+  background-color: #001f3f; /* Blu scuro per la navbar */
+  color: #ffffff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
+}
+.gru-nav a {
+  color: #ffffff; /* Bianco per i link */
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.gru-nav a:hover {
+  color: #4caf50; /* Verde brillante */
+}
+
+/* Bottoni di successo */
+.gru-btn-success {
+  background-color: #4caf50; /* Verde di successo */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.gru-btn-success:hover {
+  background-color: #388e3c; /* Verde scuro al passaggio del mouse */
+}
+
+/* Bottone informativo */
+.gru-btn-info {
+  background-color: #81d4fa; /* Blu chiaro per il bottone informativo */
+  color: #001f3f; /* Testo blu scuro */
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.gru-btn-info:hover {
+  background-color: #29b6f6; /* Blu intenso al passaggio del mouse */
+  color: #ffffff;
+}
+
+/* Footer */
+.gru-footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #e3f2fd; /* Blu chiaro */
+  color: #333; /* Grigio scuro per il testo del footer */
+}
+
+/*Tema 3: Tartaruga*/
+/* Titolo del tema */
+.tartaruga-title {
+  font-size: 2em; /* Dimensione del font */
+  color: var(--tartaruga-main); /* Colore marrone scuro */
+  text-align: center; /* Allineamento centrato */
+  /* Spaziatura sotto il titolo */
+}
+
+/* Paragrafo del tema */
+.tartaruga-paragraph {
+  font-size: 1em; /* Dimensione del font */
+  color: var(--tartaruga-secondary); /* Colore beige */
+  line-height: 1.5; /* Altezza della linea per una migliore leggibilità */
+  padding: 0 1em; /* Padding orizzontale */
+}
+
+/* Sfondo del tema */
+
+/* Navigazione del tema */
+.tartaruga-nav {
+  background-color: var(
+    --tartaruga-main
+  ); /* Colore marrone scuro per la navbar */
+  color: #ffffff; /* Colore bianco per il testo della navbar */
+  padding: 1em; /* Padding per la navbar */
+}
+
+.tartaruga-nav a {
+  color: #ffffff; /* Colore dei link nella navbar */
+  text-decoration: none; /* Rimuovi la sottolineatura dai link */
+  margin-right: 15px; /* Spaziatura tra i link */
+}
+
+/* Bottoni di successo */
+.tartaruga-btn-success {
+  background-color: var(--tartaruga-success); /* Verde foresta */
+  color: #ffffff; /* Colore bianco per il testo */
+  border: none; /* Rimuovi il bordo */
+  padding: 0.5em 1em; /* Padding per i bottoni */
+  border-radius: 5px; /* Angoli arrotondati */
+  cursor: pointer; /* Cursor a forma di mano */
+}
+
+.tartaruga-btn-success:hover {
+  background-color: var(
+    --tartaruga-accent
+  ); /* Verde scuro al passaggio del mouse */
+}
+
+/* Tema 3: Tartaruga */
+
+/* Titolo del tema */
+.tartaruga-title {
+  font-size: 2em;
+  color: var(--tartaruga-main); /* Verde oliva scuro */
+  text-align: center;
+}
+
+/* Paragrafo del tema */
+.tartaruga-paragraph {
+  font-size: 1em;
+  color: var(--tartaruga-secondary); /* Beige chiaro */
+  line-height: 1.5;
+  padding: 0 1em;
+}
+
+/* Card */
+.tartaruga-card {
+  background-color: var(--tartaruga-bg); /* Verde chiaro */
+  color: var(--tartaruga-main); /* Verde oliva scuro */
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+/* Sfondo del tema */
+.tartaruga-background {
+  background-color: var(--tartaruga-bg); /* Verde chiaro */
+  background-image: url("turtle.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+/* Navigazione del tema */
+.tartaruga-nav {
+  background-color: var(--tartaruga-main); /* Verde oliva scuro */
+  color: #ffffff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
+}
+.tartaruga-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.tartaruga-nav a:hover {
+  color: var(--tartaruga-success); /* Verde foresta */
+}
+
+/* Bottoni di successo */
+.tartaruga-btn-success {
+  background-color: var(--tartaruga-success); /* Verde foresta */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.tartaruga-btn-success:hover {
+  background-color: var(
+    --tartaruga-accent
+  ); /* Verde scuro al passaggio del mouse */
+}
+
+/* Bottone informativo */
+.tartaruga-btn-info {
+  background-color: var(
+    --tartaruga-secondary
+  ); /* Beige chiaro per il bottone informativo */
+  color: var(--tartaruga-main); /* Testo verde oliva scuro */
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.tartaruga-btn-info:hover {
+  background-color: var(
+    --tartaruga-success
+  ); /* Verde foresta al passaggio del mouse */
+  color: #ffffff;
+}
+
+/* Footer */
+.tartaruga-footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--tartaruga-bg); /* Verde chiaro */
+  color: var(--tartaruga-main); /* Verde oliva scuro */
+}
+
+/*Tema 4 : Volpe */
+/* Titolo del tema */
+/* Tema 4: Kitsune */
+
+/* Titolo del tema */
+.kitsune-title {
+  font-size: 2em;
+  color: var(--kitsune-main); /* Arancione fuoco intenso */
+  text-align: center;
+}
+
+/* Paragrafo del tema */
+.kitsune-paragraph {
+  font-size: 1em;
+  color: var(--kitsune-secondary); /* Pesca chiaro */
+  line-height: 1.5;
+  padding: 0 1em;
+}
+
+/* Card */
+.kitsune-card {
+  background-color: var(--kitsune-bg); /* Rosa chiaro */
+  color: var(--kitsune-main); /* Arancione fuoco intenso */
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+/* Sfondo del tema */
+.kitsune-background {
+  background-image: url(fox.jpeg);
+  background-color: var(--kitsune-bg); /* Rosa chiaro */
+  padding: 2em;
+  border-radius: 10px;
+}
+
+/* Navigazione del tema */
+.kitsune-nav {
+  background-color: var(--kitsune-main); /* Arancione fuoco intenso */
+  color: #ffffff;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
+}
+.kitsune-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.kitsune-nav a:hover {
+  color: var(--kitsune-success); /* Rosso acceso */
+}
+
+/* Bottoni di successo */
+.kitsune-btn-success {
+  background-color: var(--kitsune-success); /* Rosso acceso */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.kitsune-btn-success:hover {
+  background-color: var(
+    --kitsune-accent
+  ); /* Beige chiaro al passaggio del mouse */
+}
+
+/* Bottone informativo */
+.kitsune-btn-info {
+  background-color: var(--kitsune-secondary); /* Pesca chiaro */
+  color: var(--kitsune-main); /* Arancione fuoco intenso */
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.kitsune-btn-info:hover {
+  background-color: var(
+    --kitsune-success
+  ); /* Rosso acceso al passaggio del mouse */
+  color: #ffffff;
+}
+
+/* Footer */
+.kitsune-footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--kitsune-bg); /* Rosa chiaro */
+  color: var(--kitsune-main); /* Arancione fuoco intenso */
+}
+
+/* Tema 5: Gufo */
+/* Titolo del tema */
+/* Tema 5: Gufo */
+
+/* Titolo del tema */
+.gufo-title {
+  font-size: 2em;
+  color: var(--gufo-main); /* Marrone ricco */
+  text-align: center;
+}
+
+/* Paragrafo del tema */
+.gufo-paragraph {
+  font-size: 1em;
+  color: var(--gufo-secondary); /* Grigio argento */
+  line-height: 1.5;
+  padding: 0 1em;
+}
+
+/* Card */
+.gufo-card {
+  background-color: var(--gufo-bg); /* Beige caldo */
+  color: var(--gufo-main); /* Marrone ricco */
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+/* Sfondo del tema */
+.gufo-background {
+  background-image: url(gufo.jpeg);
+  background-color: var(--gufo-bg); /* Beige caldo */
+  padding: 2em;
+  border-radius: 10px;
+}
+
+/* Navigazione del tema */
+.gufo-nav {
+  background-color: var(--gufo-accent); /* Marrone ricco */
+  color: var(--gufo-accent);
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
+}
+.gufo-nav a {
+  color: var(--gufo-main);
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.gufo-nav a:hover {
+  color: var(--gufo-success); /* Marrone sabbia */
+}
+
+/* Bottoni di successo */
+.gufo-btn-success {
+  background-color: var(--gufo-success); /* Marrone sabbia */
+  color: #ffffff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.gufo-btn-success:hover {
+  background-color: var(--gufo-accent); /* Rame al passaggio del mouse */
+}
+
+/* Bottone informativo */
+.gufo-btn-info {
+  background-color: var(--gufo-secondary); /* Grigio argento */
+  color: var(--gufo-main); /* Marrone ricco */
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.gufo-btn-info:hover {
+  background-color: var(
+    --gufo-success
+  ); /* Marrone sabbia al passaggio del mouse */
+  color: #ffffff;
+}
+
+/* Footer */
+.gufo-footer {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--gufo-bg); /* Beige caldo */
+  color: var(--gufo-main); /* Marrone ricco */
+}
+/* Classi per il tema Gru */
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  .container {
+    height: auto; /* Permette al contenitore di adattarsi */
+    overflow-x: scroll; /* Abilita lo scorrimento orizzontale */
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    width: 80px;
+    height: 120px; /* Imposta l'altezza della card */
+    display: flex;
+    align-items: center; /* Centra verticalmente l'icona e il contenuto */
+    justify-content: center; /* Centra orizzontalmente */
+    margin: 0 10px;
+    transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+  }
+
+  .card > .row {
+    display: flex;
+    flex-direction: column; /* Allinea l'icona e la descrizione verticalmente */
+    align-items: center;
+  }
+
+  .card > .row > .icon {
+    display: none;
+  }
+  .vertical-text {
+    font-size: 8px;
+    margin-left: 5px;
+  }
+}
+
+.fenice-carousel {
+  background-color: var(--fenice-background);
+  color: var(--fenice-text);
+}
+
+.fenice-carousel .carousel-item {
+  background-color: var(--fenice-card-bg);
+  color: var(--fenice-text);
+}
+
+.fenice-carousel .carousel-item .btn {
+  background-color: var(--fenice-main);
+  color: var(--fenice-contrast);
+  border: 1px solid var(--fenice-contrast);
+}
+
+.fenice-carousel .carousel-item .btn:hover {
+  background-color: var(--fenice-contrast);
+  color: var(--fenice-text);
+}
+
+.gru-carousel {
+  background-color: var(--gru-primary);
+  color: var(--gru-success);
+}
+
+.gru-carousel .carousel-item {
+  background-color: var(--gru-secondary);
+  color: var(--gru-success);
+}
+
+.gru-carousel .carousel-item .btn {
+  background-color: var(--gru-success);
+  color: var(--gru-primary);
+  border: 1px solid var(--gru-primary);
+}
+
+.gru-carousel .carousel-item .btn:hover {
+  background-color: var(--gru-primary);
+  color: var(--gru-success);
+}
+
+.tartaruga-carousel {
+  background-color: var(--tartaruga-bg);
+  color: var(--tartaruga-main);
+}
+
+.tartaruga-carousel .carousel-item {
+  background-color: var(--tartaruga-secondary);
+  color: var(--tartaruga-success);
+}
+
+.tartaruga-carousel .carousel-item .btn {
+  background-color: var(--tartaruga-accent);
+  color: var(--tartaruga-bg);
+  border: 1px solid var(--tartaruga-main);
+}
+
+.tartaruga-carousel .carousel-item .btn:hover {
+  background-color: var(--tartaruga-main);
+  color: var(--tartaruga-bg);
+}
+
+.kitsune-carousel {
+  background-color: var(--kitsune-bg);
+  color: var(--kitsune-main);
+}
+
+.kitsune-carousel .carousel-item {
+  background-color: var(--kitsune-secondary);
+  color: var(--kitsune-success);
+}
+
+.kitsune-carousel .carousel-item .btn {
+  background-color: var(--kitsune-main);
+  color: var(--kitsune-bg);
+  border: 1px solid var(--kitsune-success);
+}
+
+.kitsune-carousel .carousel-item .btn:hover {
+  background-color: var(--kitsune-success);
+  color: var(--kitsune-bg);
+}
+
+#e-commerce,
+#carouselExample,
+#myCarousel {
+  cursor: grabbing; /* Mostra un cursore di grab */
+}
+
+footer {
+  width: 100%;
+  margin-top: 50px;
+  position: fixed;
+  bottom: 0;
+}
+
+#annunci {
+  height: 180vh;
+}

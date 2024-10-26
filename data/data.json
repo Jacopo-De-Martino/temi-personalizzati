@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "titolo": "Zen and the Art of Motorcycle Maintenance",
+    "autore": "Robert M. Pirsig",
+    "prezzo": 15.99,
+    "descrizione": "Viaggio filosofico attraverso la manutenzione, lo Zen e l'arte di vivere.",
+    "categoria": "Filosofia",
+    "scorta": 10,
+    "immagine": "IMG/Designer (67).jpeg"
+  },
+  {
+    "id": 2,
+    "titolo": "The Book of Tea",
+    "autore": "Kakuzō Okakura",
+    "prezzo": 12.99,
+    "descrizione": "La filosofia Zen attraverso la tradizione e la cerimonia del tè.",
+    "categoria": "Cultura",
+    "scorta": 8,
+    "immagine": "./IMG/IMG CAT/Designer(13).jpeg"
+  },
+  {
+    "id": 3,
+    "titolo": "Zen in the Art of Everyday Life",
+    "autore": "Taisen Deshimaru",
+    "prezzo": 14.99,
+    "descrizione": "Applicazione pratica dello Zen nella vita quotidiana e nella meditazione.",
+    "categoria": "Auto-aiuto",
+    "scorta": 15,
+    "immagine": "IMG/IMG CAT/Designer(26).jpeg"
+  },
+  {
+    "id": 4,
+    "titolo": "The Way of Zen",
+    "autore": "Alan Watts",
+    "prezzo": 13.99,
+    "descrizione": "Chiara introduzione alla filosofia Zen e alla sua pratica.",
+    "categoria": "Filosofia",
+    "scorta": 12,
+    "immagine": "IMG/Designer (28).jpeg"
+  },
+  {
+    "id": 5,
+    "titolo": "Everyday Zen",
+    "autore": "Charlotte Joko Beck",
+    "prezzo": 16.5,
+    "descrizione": "Guida pratica alla meditazione e alla consapevolezza nella vita quotidiana.",
+    "categoria": "Auto-aiuto",
+    "scorta": 9,
+    "immagine": "IMG/IMG CAT/Designer(20).jpeg"
+  },
+  {
+    "id": 6,
+    "titolo": "The Awakening of Zen",
+    "autore": "Daisetz Teitaro Suzuki",
+    "prezzo": 11.99,
+    "descrizione": "Introduzione alla filosofia Zen e ai suoi insegnamenti fondamentali.",
+    "categoria": "Filosofia",
+    "scorta": 5,
+    "immagine": "IMG/phylosophy_1.jpeg"
+  },
+  {
+    "id": 7,
+    "titolo": "Zen Mind, Beginner’s Mind",
+    "autore": "Shunryu Suzuki",
+    "prezzo": 14.0,
+    "descrizione": "Semplicità e purezza nella pratica della meditazione Zen.",
+    "categoria": "Spiritualità",
+    "scorta": 7,
+    "immagine": "IMG/dragon_purple.jpeg"
+  },
+  {
+    "id": 8,
+    "titolo": "The Tiger’s Cave and Other Zen Stories",
+    "autore": "Nyogen Senzaki e Paul Reps",
+    "prezzo": 10.99,
+    "descrizione": "Raccolta di storie Zen per ispirare e risvegliare.",
+    "categoria": "Letteratura",
+    "scorta": 20,
+    "immagine": "IMG/letterature_1.jpeg"
+  },
+  {
+    "id": 9,
+    "titolo": "Fukan Zazengi: The Essence of Seated Meditation",
+    "autore": "Eihei Dogen",
+    "prezzo": 9.99,
+    "descrizione": "Testo classico sulla meditazione Zen scritto da Dogen.",
+    "categoria": "Spiritualità",
+    "scorta": 18,
+    "immagine": "IMG/dragon_gold.jpeg"
+  },
+  {
+    "id": 10,
+    "titolo": "The Practice of Zen",
+    "autore": "Kosho Uchiyama",
+    "prezzo": 17.5,
+    "descrizione": "Approfondimenti pratici sulla meditazione Zen e la sua applicazione quotidiana.",
+    "categoria": "Auto-aiuto",
+    "scorta": 6,
+    "immagine": "IMG/IMG CAT/Designer(25).jpeg"
+  },
+  {
+    "id": 11,
+    "titolo": "Il Libro dello Zen",
+    "autore": "Stephen Hodge",
+    "prezzo": 13.99,
+    "descrizione": "Panoramica degli insegnamenti, filosofia e pratica meditativa Zen.",
+    "categoria": "Filosofia",
+    "disponibilità": 10,
+    "immagine": "IMG/Designer (71).jpeg"
+  },
+  {
+    "id": 12,
+    "titolo": "Nella Mente di un Uomo Zen",
+    "autore": "Richard DeMartino e Soeng Nakagawa",
+    "prezzo": 16.0,
+    "descrizione": "Approfondimenti sul pensiero Zen e la trasformazione spirituale.",
+    "categoria": "Spiritualità",
+    "disponibilità": 4,
+    "immagine": "IMG/dragon_pink.jpeg"
+  },
+  {
+    "id": 13,
+    "titolo": "Un Raggio di Luna Luminoso",
+    "autore": "John Daido Loori",
+    "prezzo": 12.5,
+    "descrizione": "Saggezza Zen attraverso la poesia e la riflessione meditativa.",
+    "categoria": "Letteratura",
+    "disponibilità": 8,
+    "immagine": "IMG/IMG CAT/Designer(14).jpeg"
+  },
+  {
+    "id": 14,
+    "titolo": "Black revenge",
+    "autore": "Charlotte Joko Beck",
+    "prezzo": 15.99,
+    "descrizione": "Insegnamenti Zen sulla non-dualità e sulla vita consapevole.",
+    "categoria": "Spiritualità",
+    "disponibilità": 7,
+    "immagine": "IMG/Designer (64).jpeg"
+  },
+  {
+    "id": 15,
+    "titolo": "La Vita e gli Insegnamenti di Bodhidharma",
+    "autore": "Red Pine",
+    "prezzo": 18.0,
+    "descrizione": "Esplorazione dell'eredità Zen di Bodhidharma.",
+    "categoria": "Storia",
+    "disponibilità": 5,
+    "immagine": "IMG/IMG CAT/Designer(22).jpeg"
+  },
+  {
+    "id": 16,
+    "titolo": "Lo Zen e la Cultura Giapponese",
+    "autore": "Daisetz Teitaro Suzuki",
+    "prezzo": 19.99,
+    "descrizione": "L'influenza dello Zen sulle arti, la cultura e le tradizioni giapponesi.",
+    "categoria": "Cultura",
+    "disponibilità": 3,
+    "immagine": "./IMG/IMG CAT/Designer(14).jpeg"
+  },
+  {
+    "id": 17,
+    "titolo": "Formazione Zen",
+    "autore": "Katsuki Sekida",
+    "prezzo": 16.99,
+    "descrizione": "Guida completa sulle tecniche e le esperienze di meditazione Zen.",
+    "categoria": "Spiritualità",
+    "disponibilità": 6,
+    "immagine": "./IMG/IMG CAT/Designer(15).jpeg"
+  },
+  {
+    "id": 18,
+    "titolo": "I Tre Pilastri dello Zen",
+    "autore": "Philip Kapleau",
+    "prezzo": 14.99,
+    "descrizione": "Insegnamenti chiave sulla meditazione, l'illuminazione e la pratica Zen.",
+    "categoria": "Filosofia",
+    "disponibilità": 11,
+    "immagine": "IMG/Designer (49).jpeg"
+  },
+  {
+    "id": 19,
+    "titolo": "Il Dito che Punta alla Luna",
+    "autore": "Thich Nhat Hanh",
+    "prezzo": 13.5,
+    "descrizione": "Insegnamenti sulla consapevolezza e sui percorsi verso l'illuminazione.",
+    "categoria": "Spiritualità",
+    "disponibilità": 9,
+    "immagine": "IMG/IMG CAT/Designer(9).jpeg"
+  },
+  {
+    "id": 20,
+    "titolo": "Il Maestro Zen Saluta",
+    "autore": "Seung Sahn",
+    "prezzo": 12.99,
+    "descrizione": "Riflessioni sulla vita, la morte e lo Zen da un maestro.",
+    "categoria": "Filosofia",
+    "disponibilità": 8,
+    "immagine": "IMG/Designer (69).jpeg"
+  },
+  {
+    "id": 21,
+    "titolo": "Il Fiore della Consapevolezza",
+    "autore": "Toni Packer",
+    "prezzo": 14.5,
+    "descrizione": "Insegnamenti Zen sulla consapevolezza e l'auto-esplorazione.",
+    "categoria": "Spiritualità",
+    "disponibilità": 7,
+    "immagine": "IMG/IMG CAT/Designer(2).jpeg"
+  },
+  {
+    "id": 22,
+    "titolo": "Satori: Risveglio Improvviso",
+    "autore": "Daisetz Teitaro Suzuki",
+    "prezzo": 11.99,
+    "descrizione": "Spiegazione del satori, l'illuminazione improvvisa nello Zen.",
+    "categoria": "Filosofia",
+    "disponibilità": 5,
+    "immagine": "IMG/Designer (33).jpeg"
+  },
+  {
+    "id": 23,
+    "titolo": "Zen e la Mente",
+    "autore": "Soyen Shaku",
+    "prezzo": 16.0,
+    "descrizione": "Aspetti filosofici e meditativi della pratica Zen.",
+    "categoria": "Spiritualità",
+    "disponibilità": 10,
+    "immagine": "IMG/Designer (66).jpeg"
+  },
+  {
+    "id": 24,
+    "titolo": "Il Cammino del Bodhisattva",
+    "autore": "Shantideva",
+    "prezzo": 13.99,
+    "descrizione": "Insegnamenti sul cammino del Bodhisattva verso la compassione.",
+    "categoria": "Filosofia",
+    "disponibilità": 4,
+    "immagine": "IMG/IMG CAT/tiger.jpeg"
+  }
+]
