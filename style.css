@@ -4,20 +4,25 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-body {
-  background-color: #eeeeea;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a {
+  text-shadow: 1px 1px 1px black, 1.1px 1.1px 1px black, 1.2px 1.2px 1px black;
 }
-
 .wrapper {
   width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container {
+.container-slide {
   height: 400px;
   display: flex;
   flex-wrap: nowrap;
@@ -166,7 +171,7 @@ input:checked + label .description {
   /* Tema 2: Gru */
   --gru-primary: #ffffff; /* Bianco */
   --gru-secondary: #a6c8e0; /* Azzurro tenue */
-  --gru-success: #0066cc; /* Blu acceso */
+  --gru-success: #0156ab; /* Blu acceso */
 
   /* Colori con opacità per il tema Gru */
   --gru-primary-opacity: rgba(255, 255, 255, 0.9); /* Bianco quasi opaco */
@@ -246,11 +251,8 @@ input:checked + label .description {
 /* Titolo del tema */
 /* Titolo del tema */
 .fenice-title {
-  font-size: 2em;
   color: var(--fenice-main); /* Arancione fuoco */
   text-align: center;
-
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Ombra per dare profondità */
 }
 
 /* Paragrafo del tema */
@@ -259,7 +261,6 @@ input:checked + label .description {
   color: var(--fenice-text); /* Marrone rossastro scuro */
   line-height: 1.6;
   padding: 0 1em;
-  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Sfondo del tema */
@@ -275,7 +276,7 @@ input:checked + label .description {
 /* Navigazione del tema */
 .fenice-nav {
   background-color: var(--fenice-nav); /* Rosso scuro */
-  color: #ffffff;
+  color: yellow;
   padding: 1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -287,6 +288,13 @@ input:checked + label .description {
 }
 .fenice-nav a:hover {
   color: var(--fenice-main); /* Arancione fuoco */
+}
+.fenice-a {
+  color: var(--fenice-contrast);
+  text-decoration: none;
+}
+.fenice-a:hover {
+  color: var(--fenice-contrast-opacity);
 }
 
 /* Bottoni di successo */
@@ -300,8 +308,8 @@ input:checked + label .description {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
-.fenice-btn-2 {
-  background-color: var(--fenice-main); /* Arancione fuoco */
+/* .fenice-btn-2 {
+  background-color: var(--fenice-main); 
   color: #ffffff;
   border: none;
   padding: 0.5em 1em;
@@ -311,7 +319,7 @@ input:checked + label .description {
   transition: background-color 0.3s;
 }
 .fenice-btn-3 {
-  background-color: var(--fenice-main); /* Arancione fuoco */
+  background-color: var(--fenice-main); 
   color: #ffffff;
   border: none;
   padding: 0.5em 1em;
@@ -319,7 +327,7 @@ input:checked + label .description {
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
-}
+} */
 .fenice-btn-success:hover {
   background-color: var(
     --fenice-contrast
@@ -341,7 +349,7 @@ input:checked + label .description {
   background-color: var(
     --fenice-main
   ); /* Arancione intenso al passaggio del mouse */
-  color: #ffffff;
+  color: var(--fenice-contrast);
 }
 
 /* Footer */
@@ -356,7 +364,6 @@ input:checked + label .description {
 /* Titolo del tema */
 /* Titolo del tema */
 .gru-title {
-  font-size: 2em;
   color: #001f3f; /* Blu scuro */
   text-align: center;
 }
@@ -364,7 +371,7 @@ input:checked + label .description {
 /* Paragrafo del tema */
 .gru-paragraph {
   font-size: 1em;
-  color: #333; /* Grigio scuro per il testo */
+  color: rgb(128, 136, 148); /* Grigio scuro per il testo */
   line-height: 1.5;
   padding: 0 1em;
 }
@@ -390,25 +397,22 @@ input:checked + label .description {
 
 /* Navigazione del tema */
 .gru-nav {
-  background-color: #001f3f; /* Blu scuro per la navbar */
-  color: #ffffff;
+  background-color: var(--gru-secondary); /* Blu scuro per la navbar */
   padding: 1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
+  color: var(--gru-primary);
 }
 .gru-nav a {
-  color: #ffffff; /* Bianco per i link */
+  color: #001f3f; /* Bianco per i link */
   text-decoration: none;
   margin-right: 15px;
   transition: color 0.3s;
 }
-.gru-nav a:hover {
-  color: #4caf50; /* Verde brillante */
-}
 
 /* Bottoni di successo */
 .gru-btn-success {
-  background-color: #4caf50; /* Verde di successo */
-  color: #ffffff;
+  background-color: var(--gru-secondary); /* Verde di successo */
+  color: #001f3f;
   border: none;
   padding: 0.5em 1em;
   border-radius: 5px;
@@ -417,13 +421,16 @@ input:checked + label .description {
   transition: background-color 0.3s;
 }
 .gru-btn-success:hover {
-  background-color: #388e3c; /* Verde scuro al passaggio del mouse */
+  background-color: var(
+    --gru-primary-opacity
+  ); /* Verde scuro al passaggio del mouse */
+  color: var(--gru-success);
 }
 
 /* Bottone informativo */
 .gru-btn-info {
-  background-color: #81d4fa; /* Blu chiaro per il bottone informativo */
-  color: #001f3f; /* Testo blu scuro */
+  background-color: #054a69; /* Blu chiaro per il bottone informativo */
+  color: #ffffff; /* Testo blu scuro */
   border: none;
   padding: 0.5em 1em;
   border-radius: 5px;
@@ -440,14 +447,16 @@ input:checked + label .description {
 .gru-footer {
   text-align: center;
   padding: 1em;
-  background-color: #e3f2fd; /* Blu chiaro */
-  color: #333; /* Grigio scuro per il testo del footer */
+  background-color: #001f3f; /* Blu chiaro */
+  color: var(
+    --gru-primary
+  ) !important; /* Grigio scuro per il testo del footer */
 }
 
 /*Tema 3: Tartaruga*/
 /* Titolo del tema */
 .tartaruga-title {
-  font-size: 2em; /* Dimensione del font */
+  /* Dimensione del font */
   color: var(--tartaruga-main); /* Colore marrone scuro */
   text-align: center; /* Allineamento centrato */
   /* Spaziatura sotto il titolo */
@@ -465,17 +474,26 @@ input:checked + label .description {
 
 /* Navigazione del tema */
 .tartaruga-nav {
-  background-color: var(
-    --tartaruga-main
-  ); /* Colore marrone scuro per la navbar */
-  color: #ffffff; /* Colore bianco per il testo della navbar */
-  padding: 1em; /* Padding per la navbar */
+  background-color: var(--tartaruga-main); /* Verde oliva scuro */
+  color: var(--tartaruga-secondary);
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
 }
-
 .tartaruga-nav a {
-  color: #ffffff; /* Colore dei link nella navbar */
-  text-decoration: none; /* Rimuovi la sottolineatura dai link */
-  margin-right: 15px; /* Spaziatura tra i link */
+  color: var(--tartaruga-secondary);
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.tartaruga-nav a:hover {
+  color: var(--tartaruga-success); /* Verde foresta */
+}
+.tartaruga-a {
+  color: var(--tartaruga-secondary);
+  text-decoration: none;
+}
+.tartaruga-a:hover {
+  color: var(--tartaruga-accent-opacity);
 }
 
 /* Bottoni di successo */
@@ -498,7 +516,6 @@ input:checked + label .description {
 
 /* Titolo del tema */
 .tartaruga-title {
-  font-size: 2em;
   color: var(--tartaruga-main); /* Verde oliva scuro */
   text-align: center;
 }
@@ -531,21 +548,6 @@ input:checked + label .description {
 }
 
 /* Navigazione del tema */
-.tartaruga-nav {
-  background-color: var(--tartaruga-main); /* Verde oliva scuro */
-  color: #ffffff;
-  padding: 1em;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
-}
-.tartaruga-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  margin-right: 15px;
-  transition: color 0.3s;
-}
-.tartaruga-nav a:hover {
-  color: var(--tartaruga-success); /* Verde foresta */
-}
 
 /* Bottoni di successo */
 .tartaruga-btn-success {
@@ -598,7 +600,6 @@ input:checked + label .description {
 
 /* Titolo del tema */
 .kitsune-title {
-  font-size: 2em;
   color: var(--kitsune-main); /* Arancione fuoco intenso */
   text-align: center;
 }
@@ -606,7 +607,7 @@ input:checked + label .description {
 /* Paragrafo del tema */
 .kitsune-paragraph {
   font-size: 1em;
-  color: var(--kitsune-secondary); /* Pesca chiaro */
+  color: rgb(78, 36, 0) /* Pesca chiaro */
   line-height: 1.5;
   padding: 0 1em;
 }
@@ -644,6 +645,13 @@ input:checked + label .description {
 .kitsune-nav a:hover {
   color: var(--kitsune-success); /* Rosso acceso */
 }
+.kitsune-a {
+  color: var(--kitsune-secondary);
+  text-decoration: none;
+}
+.kitsune-a:hover {
+  color: var(--kitsune-success);
+}
 
 /* Bottoni di successo */
 .kitsune-btn-success {
@@ -658,7 +666,7 @@ input:checked + label .description {
 }
 .kitsune-btn-success:hover {
   background-color: var(
-    --kitsune-accent
+    --kitsune-main-opacity
   ); /* Beige chiaro al passaggio del mouse */
 }
 
@@ -694,7 +702,6 @@ input:checked + label .description {
 
 /* Titolo del tema */
 .gufo-title {
-  font-size: 2em;
   color: var(--gufo-main); /* Marrone ricco */
   text-align: center;
 }
@@ -727,7 +734,7 @@ input:checked + label .description {
 /* Navigazione del tema */
 .gufo-nav {
   background-color: var(--gufo-accent); /* Marrone ricco */
-  color: var(--gufo-accent);
+  color: var(--gufo-bg);
   padding: 1em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra sottile */
 }
@@ -739,6 +746,13 @@ input:checked + label .description {
 }
 .gufo-nav a:hover {
   color: var(--gufo-success); /* Marrone sabbia */
+}
+.gufo-a {
+  color: var(--gufo-secondary);
+  text-decoration: none;
+}
+.gufo-a:hover {
+  color: var(--gufo-success);
 }
 
 /* Bottoni di successo */
@@ -785,14 +799,14 @@ input:checked + label .description {
 
 /* Mobile view adjustments */
 @media (max-width: 600px) {
-  .container {
+  .container-slide {
     height: auto; /* Permette al contenitore di adattarsi */
     overflow-x: scroll; /* Abilita lo scorrimento orizzontale */
     display: flex;
     flex-wrap: nowrap;
   }
 
-  .card {
+  .cardSlider {
     width: 80px;
     height: 120px; /* Imposta l'altezza della card */
     display: flex;
@@ -803,13 +817,13 @@ input:checked + label .description {
     box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
   }
 
-  .card > .row {
+  .cardSlider > .row {
     display: flex;
     flex-direction: column; /* Allinea l'icona e la descrizione verticalmente */
     align-items: center;
   }
 
-  .card > .row > .icon {
+  .cardSlider > .row > .icon {
     display: none;
   }
   .vertical-text {
@@ -908,13 +922,7 @@ input:checked + label .description {
   cursor: grabbing; /* Mostra un cursore di grab */
 }
 
-footer {
-  width: 100%;
-  margin-top: 50px;
-  position: fixed;
-  bottom: 0;
-}
-
-#annunci {
-  height: 180vh;
+header {
+  margin-top: -120px;
+  height: 120vh;
 }

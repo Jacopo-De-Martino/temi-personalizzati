@@ -1,0 +1,131 @@
+.logo {
+  margin-left: 74px;
+}
+
+.imgHover {
+  transition: 1s;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cuore {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 2rem;
+  text-shadow: none !important; /* Importante per garantire che venga rimosso */
+  display: none; /* Se non vuoi visualizzarlo, assicurati di cambiarlo quando necessario */
+  background: red;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Per supporto Firefox */
+}
+
+.img-container:hover .cuore {
+  display: block;
+}
+
+.zoom-img {
+  overflow: hidden;
+}
+
+.imgHover:hover {
+  transform: scale(1.5);
+  transition: 2s;
+  opacity: 0.5;
+}
+
+.bi-heart-pulse-fill {
+  background: linear-gradient(90deg, var(--bluenavy), var(--link));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Leggera elevazione al passaggio del mouse */
+  box-shadow: inset 20px 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.3); /* Ombra classica più intensa al passaggio del mouse */
+}
+
+.card-header {
+  background-color: var(--purple);
+  color: var(--persian-white);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px;
+}
+.card-title {
+  color: #720069;
+}
+.card-body {
+  padding: 20px;
+  color: var(--blue-crayola);
+}
+
+.btn:focus {
+  outline: none; /* Rimuove l'outline standard del focus */
+  border: none; /* Rimuove il bordo al clic */
+}
+
+.btn-bg {
+  background-color: white;
+  font-family: "Electrolize", sans-serif;
+  color: var(--link);
+  font-weight: 900;
+  box-shadow: 3px 3px 15px black;
+}
+
+.btn-border-color {
+  border-color: white;
+}
+
+.btn-bg:hover {
+  color: white;
+  background-color: var(--link);
+  border-color: transparent; /* Imposta il bordo su trasparente al passaggio del mouse */
+}
+.offcanvas .btn:focus,
+.offcanvas .btn:hover {
+  outline: none; /* Rimuove l'outline standard del focus */
+  border: none; /* Rimuove il bordo */
+  border-color: transparent; /* Assicura che il bordo sia trasparente */
+}
+
+.offcanvas .btn {
+  border-color: transparent; /* Assicura che il bordo sia trasparente anche qui */
+}
+
+.bi {
+  color: black;
+}
+
+.item {
+  opacity: 0; /* Inizia invisibile */
+  transform: translateY(50px); /* Parte dall'alto */
+  transition: opacity 1.2s ease, transform 1.5s ease; /* Transizione */
+}
+
+.item.visible {
+  opacity: 1; /* Diventa visibile */
+  transform: translateY(0); /* Torna alla posizione originale */
+}
+
+.navbar-fixed {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+.carousel-control-prev-icon {
+  background-image: url(../../IMG/freccia\ sinistra.png);
+}
+.carousel-control-next-icon {
+  background-image: url(../../IMG/freccia\ destra.png);
+}
+
+@media screen and (max-width: 600px) {
+  .img-collection {
+    width: 100%;
+  }
+}

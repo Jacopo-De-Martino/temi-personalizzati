@@ -1,3 +1,54 @@
+window.addEventListener('scroll', () => {
+    let scrollPosition = window.scrollY;
+    
+    // Calcola l'angolo del gradiente in base alla posizione di scroll
+  
+
+    // Imposta il gradiente con l'angolo calcolato
+    
+
+    // Aggiungi una transizione fluida per il background
+    navbar.style.transition = 'background 0.3s ease-out'; 
+
+    // Condizione per rendere la navbar sticky e modificarne lo stile
+    
+
+    if (scrollPosition > 0) {
+        // Aggiungi le classi per sticky navbar senza margini
+        navbar.classList.add('p-0', 'mx-0', 'w-100', 'mt-0');
+        // Rimuovi le classi di margine che non servono più
+        navbar.classList.remove('mt-3', 'mx-3');
+        navbar.classList.add('navbar-fixed')
+    } else {
+        // Quando torni in cima, rimuovi sticky e resetta i margini
+        navbar.classList.remove('p-0', 'mx-0', 'w-100', 'mt-0');
+        navbar.classList.add('mt-3', 'mx-3'); // Riaggiungi margini
+        navbar.classList.remove('navbar-fixed')
+    }
+});
+
+const items = document.querySelectorAll('.item');
+const options = {
+    root: null, // utilizza il viewport
+    rootMargin: '0px',
+    threshold: 0.1 // soglia per attivare l'osservazione
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Aggiungi la classe 'visible'
+            observer.unobserve(entry.target); // Ferma di osservare questo elemento
+        }
+    });
+}, options);
+
+items.forEach(item => {
+    observer.observe(item); // Inizia a osservare ogni elemento
+});
+
+
+
 
 const titleElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6'); // Solo i titoli
 const paragraphElements = document.querySelectorAll('p'); // Solo i paragrafi
@@ -8,6 +59,9 @@ const nav = document.querySelector('nav'); // Navbar principale
 const footer = document.querySelector('footer'); // Footer
 const successButtons = document.querySelectorAll('.suc-btn'); // Pulsanti di successo
 const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informativi
+const a = document.querySelectorAll('a'); //
+console.log(a);
+
 
 
             // Definisci i temi
@@ -25,7 +79,8 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
                             { class: 'fenice-btn-success' },
                             { class: 'fenice-btn-info' }
                         ],
-                        footer: 'fenice-footer'
+                        footer: 'fenice-footer',
+                        a: 'fenice-a'
                     },
                     '2': {
                         title: ['gru-title'],
@@ -39,7 +94,8 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
                             { class: 'gru-btn-success' },
                             { class: 'gru-btn-info' }
                         ],
-                        footer: 'gru-footer'
+                        footer: 'gru-footer',
+                        a: 'gru-a'
                     },
                     '3': {
                         title: ['tartaruga-title'],
@@ -54,7 +110,8 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
                             { class: 'tartaruga-btn-info' }
                         ],
                         
-                        footer: 'tartaruga-footer'
+                        footer: 'tartaruga-footer',
+                        a: 'tartaruga-a'
                     },
                     '4': {
                         title: ['kitsune-title'],
@@ -69,7 +126,8 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
                             { class: 'kitsune-btn-info' }
                         ],
                        
-                        footer: 'kitsune-footer'
+                        footer: 'kitsune-footer',
+                        a: 'kitsune-a'
                     },
                     '5': {
                         title: ['gufo-title'],
@@ -84,7 +142,8 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
                             { class: 'gufo-btn-info' }
                         ],
                         
-                        footer: 'gufo-footer'
+                        footer: 'gufo-footer',
+                        a: 'gufo-a'
                     }
                 
                 } 
@@ -94,85 +153,68 @@ const infoButtons = document.querySelectorAll('.inf-btn'); // Pulsanti informati
             
 
             // Valore selezionato iniziale
-let selectedValue = '1';
-applyTheme(selectedValue); // Applica il tema iniziale
+            let selectedValue = '1'; // Impostazione del valore iniziale del tema
 
-// Funzione per applicare il tema
-function applyTheme(themeKey) {
-    const currentTheme = themes[themeKey];
-
-    // Rimuovi le classi precedenti da tutti i temi
-    Object.keys(themes).forEach(t => {
-        if (t !== themeKey) {
-            const prevTheme = themes[t];
-
-            // Rimuovi classi dai titoli
-            titleElements.forEach(element => {
-                prevTheme.title.forEach(cls => element.classList.remove(cls));
+            // Funzione per impostare il tema selezionato
+            function setSelectedTheme(themeKey) {
+                selectedValue = themeKey;  // Aggiorna selectedValue con il valore del tema selezionato
+                applyTheme(selectedValue);  // Applica il tema appena aggiornato
+            }
+            
+            // Funzione per applicare il tema
+            function applyTheme(themeKey) {
+                const currentTheme = themes[themeKey];
+            
+                // Seleziona nuovamente gli elementi per includere quelli specifici degli articoli
+                const titleElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, .text-article');
+                const paragraphElements = document.querySelectorAll('p, .text-price');
+                const cardTitleElements = document.querySelectorAll('.card-title-theme');
+                const a = document.querySelectorAll('a');
+            
+                // Rimuovi le classi precedenti da tutti i temi
+                Object.keys(themes).forEach(t => {
+                    if (t !== themeKey) {
+                        const prevTheme = themes[t];
+            
+                        titleElements.forEach(element => prevTheme.title.forEach(cls => element.classList.remove(cls)));
+                        paragraphElements.forEach(element => prevTheme.paragraph.forEach(cls => element.classList.remove(cls)));
+                        cardTitleElements.forEach(element => prevTheme.title.forEach(cls => element.classList.remove(cls)));
+            
+                        if (prevTheme.a) a.forEach(element => element.classList.remove(prevTheme.a));
+                        if (header && prevTheme.header) header.classList.remove(prevTheme.header);
+                        if (nav && prevTheme.nav.class) nav.classList.remove(prevTheme.nav.class);
+                        if (footer && prevTheme.footer) footer.classList.remove(prevTheme.footer);
+            
+                        successButtons.forEach(button => button.classList.remove(prevTheme.buttons[0]?.class));
+                        infoButtons.forEach(button => button.classList.remove(prevTheme.buttons[1]?.class));
+                    }
+                });
+            
+                // Applica il nuovo tema
+                if (currentTheme) {
+                    titleElements.forEach(element => currentTheme.title.forEach(cls => element.classList.add(cls)));
+                    paragraphElements.forEach(element => currentTheme.paragraph.forEach(cls => element.classList.add(cls)));
+                    cardTitleElements.forEach(element => currentTheme.title.forEach(cls => element.classList.add(cls)));
+            
+                    if (currentTheme.a) a.forEach(element => element.classList.add(currentTheme.a));
+                    if (header && currentTheme.header) header.classList.add(currentTheme.header);
+                    if (nav && currentTheme.nav.class) nav.classList.add(currentTheme.nav.class);
+                    if (footer && currentTheme.footer) footer.classList.add(currentTheme.footer);
+            
+                    successButtons.forEach(button => button.classList.add(currentTheme.buttons[0].class));
+                    infoButtons.forEach(button => button.classList.add(currentTheme.buttons[1].class));
+                }
+            }
+            
+            // Gestione del cambio tema tramite slider
+            slides.forEach(slide => {
+                slide.addEventListener('change', (event) => {
+                    setSelectedTheme(event.target.value); // Chiama setSelectedTheme per aggiornare selectedValue
+                });
             });
-
-            // Rimuovi classi dai paragrafi
-            paragraphElements.forEach(element => {
-                prevTheme.paragraph.forEach(cls => element.classList.remove(cls));
-            });
-
-            // Rimuovi la classe specifica dal titolo della card
-            cardTitleElements.forEach(element => {
-                prevTheme.title.forEach(cls => element.classList.remove(cls));
-            });
-
-            // Rimuovi classi da header, nav, header e footer se esistono
-            if (header && prevTheme.header) header.classList.remove(prevTheme.header);
-            if (nav && prevTheme.nav.class) nav.classList.remove(prevTheme.nav.class);
-            if (header && prevTheme.header) header.classList.remove(prevTheme.header);
-            if (footer && prevTheme.footer) footer.classList.remove(prevTheme.footer);
-
-            // Rimuovi classi dai pulsanti
-            successButtons.forEach(button => {
-                if (prevTheme.buttons[0]) button.classList.remove(prevTheme.buttons[0].class);
-            });
-            infoButtons.forEach(button => {
-                if (prevTheme.buttons[1]) button.classList.remove(prevTheme.buttons[1].class);
-            });
-        }
-    });
-
-    // Applica le nuove classi dal tema corrente
-    if (currentTheme) {
-        // Applica le classi per i titoli
-        titleElements.forEach(element => {
-            currentTheme.title.forEach(cls => element.classList.add(cls));
-        });
-
-        // Applica le classi per i paragrafi
-        paragraphElements.forEach(element => {
-            currentTheme.paragraph.forEach(cls => element.classList.add(cls));
-        });
-
-        // Applica la classe di stile al titolo della card
-        cardTitleElements.forEach(element => {
-            currentTheme.title.forEach(cls => element.classList.add(cls));
-        });
-
-        // header, nav, header e footer
-        if (header && currentTheme.header) header.classList.add(currentTheme.header);
-        if (nav && currentTheme.nav.class) nav.classList.add(currentTheme.nav.class);
-        if (header && currentTheme.header) header.classList.add(currentTheme.header);
-        if (footer && currentTheme.footer) footer.classList.add(currentTheme.footer);
-
-        // Pulsanti tematizzati
-        successButtons.forEach(button => button.classList.add(currentTheme.buttons[0].class));
-        infoButtons.forEach(button => button.classList.add(currentTheme.buttons[1].class));
-    }
-}
-
-// Gestione del cambio tema tramite slider
-slides.forEach(slide => {
-    slide.addEventListener('change', (event) => {
-        const selectedTheme = event.target.value;
-        applyTheme(selectedTheme);
-    });
-});
+            
+            // Funzione di filtraggio che riapplica il tema attuale
+        
 
 
 // Seleziona la navbar
@@ -251,8 +293,7 @@ fetch(path)
 
     function creaCategorie() {
       // Dobbiamo filtrare e salvare le categorie UNICHE
-      let categorieUniche = [];
-      categorieUniche.push('All');
+      let categorieUniche = ['All'];
 
       // Processa i dati per ottenere categorie uniche
       data.forEach(item => {
@@ -269,8 +310,8 @@ fetch(path)
         div.classList.add('form-check', 'form-switch');
 
         // Assegna correttamente innerHTML
-        div.innerHTML = `<input class="form-check-input d-yes " name="categoria" type="radio" id="${categoria}" value="${categoria}">
-                     <label class="form-check-label" for="${categoria}">${categoria}</label>`;
+        div.innerHTML = `<input class="form-check-input radio-categoria d-yes" name="categoria" type="radio" id="${categoria}" value="${categoria}">
+                         <label class="form-check-label" for="${categoria}">${categoria}</label>`;
         
         radioContainer.appendChild(div); // Aggiungi il div al container
       });
@@ -280,101 +321,99 @@ fetch(path)
       // Svuota il contenitore degli articoli prima di aggiungere nuovi articoli
       containerArticles.innerHTML = '';
 
-      //visualizza tutti gli articoli in ordine decrescente in base al prezzo
-      arr.sort((a, b) => b.prezzo - a.prezzo); // Utilizza la funzione sort() per ordinare gli articoli in modo decrescente in base al prezzo
+      // Visualizza tutti gli articoli in ordine decrescente in base al prezzo
+      arr.sort((a, b) => b.prezzo - a.prezzo);
 
       arr.forEach((item) => {
         let div = document.createElement('div');
         div.classList.add('col-md-3', 'col-12');
         div.innerHTML = `<div class="card mt-3">
                             <div class="overflow-hidden">
-                                <img src="${item.immagine}" class="card-img-top img-zoom" alt="${item.nome}"> <!-- Usa il campo immagine -->
+                                <img src="${item.immagine}" class="card-img-top img-zoom" alt="${item.nome}">
                             </div>
                             <div class="card-body">
-                                <p class="card-text text-price">€ ${item.prezzo}</p> <!-- Usa il campo prezzo -->
-                                <p class="text-article">${item.titolo}</p> <!-- Usa il campo nome -->
-                                <a class="recens-link" href="">vedi recensione</a>
+                                <p class="card-text text-price">€ ${item.prezzo}</p>
+                                <h6 class="text-article">${item.titolo}</h6>
+                                <a class="" href="">vedi recensione</a>
                             </div>
-                        </div>`;
+                         </div>`;
         
-        containerArticles.appendChild(div); // Aggiungi il div al container
+        containerArticles.appendChild(div);  
       });
+
+      applyTheme(selectedValue);
     }
-    
+
     let radioCategories = document.querySelectorAll('.form-check-input');
 
-        radioCategories.forEach((radioButton) => {
-            radioButton.addEventListener('click', () => {
-                let categoria = radioButton.id;
-
-                filterByCategory(categoria);
-            })
-        })
-    
+    radioCategories.forEach((radioButton) => {
+      radioButton.addEventListener('click', () => {
+        let categoria = radioButton.id;
+        filterByCategory(categoria);
+      });
+    });
    
-        function filtraPerCategoria(categoria) {
-          console.log("Categoria selezionata:", categoria); // Aggiungi log per verificare la categoria selezionata
-          if (categoria.toLowerCase() === 'all') {
-              creaArticoli(data); // Mostra tutti gli articoli
-          } else {
-              let filtered = data.filter((article) => article.categoria === categoria);
-              creaArticoli(filtered);
-          }
+    function filtraPerCategoria(categoria) {
+      console.log("Categoria selezionata:", categoria);
+      if (categoria.toLowerCase() === 'all') {
+        creaArticoli(data); // Mostra tutti gli articoli
+      } else {
+        let filtered = data.filter((article) => article.categoria === categoria);
+        creaArticoli(filtered);
       }
-      
-    // Chiama le funzioni per creare categorie e articoli
+    }
+    
     creaCategorie(); 
-    creaArticoli(data); // Passa tutti gli articoli inizialmente
+    creaArticoli(data);
 
     // Aggiungi un event listener per filtrare gli articoli quando viene selezionata una checkbox
     radioContainer.addEventListener('change', (event) => {
-      if (event.target.matches('input[type="radio"]')) {
+      if (event.target.matches('input[type="radio"].radio-categoria')) {
         const categoriaSelezionata = event.target.id;
         if (event.target.checked) {
-          // Filtra per categoria selezionata
           filtraPerCategoria(categoriaSelezionata);
         } else {
-          // Se la checkbox è deselezionata, mostra tutti gli articoli
           creaArticoli(data);
         }
       }
     });
 
     let inputRange = document.getElementById('input-range');
-let inputLabel = document.getElementById('input-label');
+    let inputLabel = document.getElementById('input-label');
 
-// Funzione per impostare il prezzo massimo
-const prezzoMinimo = 2;
+    // Funzione per impostare il prezzo massimo
+    const prezzoMinimo = 2;
 
-function maxPrezzo() {  
-    let prezzi = data.map((item) => Number(item.prezzo));
-    let prezzoMassimo = Math.round(Math.max(...prezzi));
-    
-    // Imposta i valori del range
-    inputRange.min = prezzoMinimo; // Imposta il valore minimo
-    inputRange.max = prezzoMassimo; // Imposta il valore massimo
-    inputRange.value = prezzoMassimo; // Imposta il valore iniziale
-    inputLabel.innerHTML = `${prezzoMassimo} €`; // Mostra il prezzo massimo
-    console.log(prezzoMassimo);
-}
-maxPrezzo();
+    function maxPrezzo() {  
+      let prezzi = data.map((item) => Number(item.prezzo));
+      let prezzoMassimo = Math.round(Math.max(...prezzi));
+      
+      // Imposta i valori del range
+      inputRange.min = prezzoMinimo;
+      inputRange.max = prezzoMassimo;
+      inputRange.value = prezzoMassimo;
+      inputLabel.innerHTML = `${prezzoMassimo} €`;
+      console.log(prezzoMassimo);
+    }
+    maxPrezzo();
 
-// Funzione per filtrare i prezzi
-function filterByPrice(value) {
-    let filteredPrezzo = data.filter((item) => Number(item.prezzo) <= Number(value) && Number(item.prezzo) >= prezzoMinimo);
-    console.log("Prezzi filtrati:", filteredPrezzo);
-    creaArticoli(filteredPrezzo); // Mostra solo gli articoli filtrati
-}
+    // Funzione per filtrare i prezzi
+    function filterByPrice(value) {
+      let filteredPrezzo = data.filter((item) => Number(item.prezzo) <= Number(value) && Number(item.prezzo) >= prezzoMinimo);
+      console.log("Prezzi filtrati:", filteredPrezzo);
+      creaArticoli(filteredPrezzo);
+    }
 
-// Aggiunta dell'evento input
-inputRange.addEventListener('input', (event) => {
-    filterByPrice(inputRange.value);
-    inputLabel.innerHTML = `${inputRange.value} €`;
-});
-
+    // Aggiunta dell'evento input
+    inputRange.addEventListener('input', (event) => {
+      filterByPrice(inputRange.value);
+      inputLabel.innerHTML = `${inputRange.value} €`;
+    });
 
   })
   .catch(error => console.error('Fetch error:', error));
 
+console.log(radioContainer.innerHTML);
+applyTheme(selectedValue);
 
-  console.log(radioContainer.innerHTML);
+  
